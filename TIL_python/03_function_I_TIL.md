@@ -70,3 +70,61 @@ print(cylinder(2,5))
 62.83185307179586
 ```
 
+
+
+### 기본인자
+
+기본 인자 뒤에 기본이 아닌 인자가 따라오면 안 됨
+
+```python
+def greeting(name='익명', age):
+    print(f'{name}, 안녕? 난 {age}살이야.')
+# SyntaxError: non-default argument follows default argument
+```
+
+정의조차 되지 않는다.
+
+또한 정의가 잘 되었다 해도, 키워드 인자를 활용한 다음에 기본 인자를 활용할 경우 호출에서 에러가 남
+
+```python
+def greeting(age, name='익명'):
+    print(f'{name}, 안녕? 난 {age}살이야.')
+
+greeting(age=100, '국현')
+# SyntaxError: positional argument follows keyword argument
+```
+
+## 가변 인자
+
+### 가변 인자 리스트
+
+개수가 정해지지 않은 임의의 인자를 받기 위해서는 `*args`를 활용
+
+`tuple` 형태로 처리가 됨
+
+```python
+def hello(*names):
+    for name in names:
+        print(f'Hello, {name}.')
+```
+
+### 가변 키워드 인자
+
+개수가 정해지지 않은 키워드 인자는 **`dict`** 형태로 처리가 되며, `**kwargs`로 표현
+
+```python
+def my_url(**kwargs):
+    url = 'https://api.go.kr?'
+    for key, value in kwargs.items():
+        url+= f'{key}={value}&'
+    return url
+  
+print(my_url(sidoname='서울', key='asdf'))
+```
+
+```
+https://api.go.kr?sidoname=서울&key=asdf&
+```
+
+
+
