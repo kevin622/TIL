@@ -65,4 +65,20 @@ def sum_recur(N):
 
 - 범위가 줄어드는 문제에 적합
 - 범위가 더 이상 줄어들지 않는 최종적으로 `base case` 존재해야 함
+- 코드가 직관적이고 알기 쉬운 경우가 많음 
+- 변수 사용을 줄일 수 있음
+- 함수가 호출될 때마다 메모리 공간에 쌓여 메모리 스택이 넘치거나(Stack Overflow) 프로그램 실행 속도가 느려질 수 있음
+
+### 최대재귀깊이
+
+위의 문제를 방지하기 위해 파이썬은 재귀가 1000번이 넘어가면 더이상 함수를 호출하지 않는데, 이를 최대 재귀 깊이(Maximum Recursion Depth)라 함
+
+```python
+def ssafy():
+    print('', end = '')
+    ssafy()
+
+ssafy()
+# RecursionError: maximum recursion depth exceeded while calling a Python object
+```
 
