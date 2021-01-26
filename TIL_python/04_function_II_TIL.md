@@ -39,3 +39,30 @@ del print  # Built-in scope에서 이름 삭제
 print('Bye...')  # NameError
 ```
 
+### 변수의 수명 주기
+
+식별자에는 `수명주기(lifecycle)`가 있음
+
+- **빌트인 스코프`(built-in scope)`**: 파이썬이 실행된 이후부터 영원히 유지
+
+- **전역 스코프`(global scope)`**: 모듈이 호출된 시점 이후 혹은 이름 선언된 이후부터 인터프리터가 끝날때 까지 유지, 파이썬 코드가 종료되면 없어짐
+
+- **지역(함수) 스코프`(local scope)`**: 함수가 호출될 때 생성되고, 함수가 종료될 때까지 유지 (함수 내에서 처리되지 않는 예외를 일으킬 때 삭제됨), 즉 `return` 이후 없어짐
+
+## 재귀함수(Recursive Function)
+
+> 프로그래밍 3대장 : 재귀함수, 포인터, OOP(클래스)
+
+내부에서 자기 자신을 호출하는 함수
+
+```python
+def sum_recur(N):
+    if N == 1:
+        return 1
+    else:
+        return N + sum_recur(N-1)
+```
+
+- 범위가 줄어드는 문제에 적합
+- 범위가 더 이상 줄어들지 않는 최종적으로 `base case` 존재해야 함
+
