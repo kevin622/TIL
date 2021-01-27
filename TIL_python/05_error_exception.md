@@ -27,3 +27,19 @@ print('Hi'
 
 > 예상하지 못한 상황(Exception)을 맞이하면 프로그램이 멈춤
 
+```python
+10 * (1/0)
+# ZeroDivisionError: division by zero
+
+print(abc)
+# NameError: name 'abc' is not defined
+
+1 + '1'
+# TypeError: unsupported operand type(s) for +: 'int' and 'str'
+# 자료형에 대한 에러
+
+
+
+
+```
+
