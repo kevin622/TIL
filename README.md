@@ -40,3 +40,7 @@ git add .
 git commit -m {'message'}
 git push origin master
 ```
+
+
+
+> 주의 : 이미지파일 이름 한글로 하지 말 것!
