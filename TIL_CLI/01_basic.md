@@ -37,5 +37,5 @@ def func(args) :
 
 
 
-![이미지파일](01_basic_assets/이미지파일.png)
+![이미지파일](01_basic_assets/image_file.png)
 
