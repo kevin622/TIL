@@ -89,3 +89,88 @@ print(classroom)
 # ['Justin', 'David', 'Tom']
 ```
 
+## 데이터의 분류
+
+### immutable
+
+- `literal` : `string`, `number`, `bool`
+
+- `range`
+- `tuple`
+
+같은 값이라면 모든 변수가 같은 주소값을 참조하기 때문에 변경이 가능하면 안 된다!
+
+```python
+num1 = 10
+num2 = 10
+num1 is num2
+# True
+```
+
+### mutable
+
+- `list`, `set`, `dict`
+
+같은 값을 생성하더라도 다른 주소값에 저장됨. 각자의 주소값이 다르기 때문에 데이터가 변하는 것이 큰 문제가 되지 않음
+
+```python
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+list1 is list2
+# False
+```
+
+## 리스트의 복사 방법
+
+```python
+list1 = [1, 2, 3]
+list2 = list1
+list1[0] = 100
+print(list2)
+# [100, 2, 3]
+```
+
+위와 같이 복사할 경우 원래 변수의 데이터를 바꿀 경우 다음 변수의 데이터도 바뀐다.
+
+리스트의 값만 복사하는 방법은?
+
+### 얕은 복사 (shallow copy)
+
+- `slicing`
+
+```python
+list1 = [1, 2, 3]
+list2 = list1[:]
+list1[0] = 100
+print(list2)
+# [1, 2, 3]
+```
+
+- `list()`
+
+```python
+list1 = [1, 2, 3]
+list2 = list(list1)
+list1[0] = 100
+print(list2)
+# [1, 2, 3]
+```
+
+하지만 위와 같은 방법들의 경우, 중첩된 리스트는 또 같은 주소값을 참조한다;;;;;
+
+### 깊은 복사 (deep copy)
+
+```python
+import copy
+a = [[1, 2, 3], 2, 3]
+b = copy.deepcopy(a)
+b[0][0] = 100
+b[1] = 'new'
+print(a, b)
+# [[1, 2, 3], 2, 3] [[100, 2, 3], 'new', 3]
+```
+
+
+
+> 참고 : `map`, `filter`, `zip` 은 모두 인자로`iterable` 한 객체를 받는다!
+
