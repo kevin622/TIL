@@ -165,3 +165,35 @@ def binary_search(list_obj, k):
     return false
 ```
 
+## 선택 알고리즘 Selection Algoritm
+
+자료의 k번째 큰(혹은 작은) 수를 찾는 알고리즘
+
+k번째 수까지만 정렬한 후 해당 수를 반환하면 되므로, O(nk)의 시간복잡도를 가짐
+
+```python
+def Selection(list_obj, k):
+    for i in range(k):
+        min_idx = 0
+        for j in range(i + 1, len(list_obj)):
+            if list_obj[i] < list_obj[min_idx]:
+                min_idx = i
+        list_obj[i], list_obj[min_idx] = list_obj[min_idx], list_obj[i]
+    return list_obj[k-1]
+```
+
+이 과정을 (n-1)개, 즉 리스트의 전체 길이(-1)만큼 반복할 경우 sort와 같은 역할을 하게 됨, 그 시간 복잡도는 O(n^2)가 됨
+
+```python
+def Selection(list_obj, k):
+    for i in range(len(list_obj)-1):
+        min_idx = 0
+        for j in range(i + 1, len(list_obj)):
+            if list_obj[i] < list_obj[min_idx]:
+                min_idx = i
+        list_obj[i], list_obj[min_idx] = list_obj[min_idx], list_obj[i]
+    return list_obj[k-1]
+```
+
+> 교환의 횟수가 버블 정렬보다 적고, 삽입 정렬보다도 적음
+
