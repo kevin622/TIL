@@ -87,7 +87,7 @@ def Bubble_sort(list_object):
 - 집합 내 가장 큰 수를 알아야 함
 
 $$
-O(n^2) \\
+O(n+k) \\
 n=length\ of\ the\ list\\
 k=biggest\ number\ in\ the\ list
 $$

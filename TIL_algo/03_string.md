@@ -38,7 +38,7 @@ print(''.join(list(reversed(word))))
 
 # 4
 word_list = list(word)
-for idx in range(len(word_list)):
+for idx in range(len(word_list)//2):
     word_list[idx], word_list[len(word_list) - idx - 1] = word_list[len(word_list) - idx - 1], word_list[idx]
 print(''.join(word_list))
 ```
