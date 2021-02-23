@@ -40,3 +40,30 @@ def fibo_dp(n):
     return f[n]
 ```
 
+## DFS 깊이 우선 탐색
+
+![dfs](https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfMTkx/MDAxNTIzMzA1MzkzOTQz.I-NHYeWfSYmlkCrHnaS_oSFku2GkS1LDTUE1Hlb6rq4g.hiOLNo7QZU_qV7D1AXwiqEDQfMQpiWsM1S1KtinCsdYg.GIF.dpfkdlt/ezgif-6-f9afd9777f.gif?type=w800)
+```python
+# stack 이용
+stack = [start]
+visited = []
+while stack:
+  v = stack.pop()
+  if v not in visited:
+    visited.append(v)
+    for w in G[v]:
+      stack.append(w)
+```
+
+> 참고 : 재귀 이용
+
+```python
+visited = []
+def DFS(g, v):
+  global visited
+  visited.append(v)
+  for w in G[v]:
+    if w not in visited:
+      DFS(g, w)
+```
+
