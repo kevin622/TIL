@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Hi{% endblock title %}
+{% block content %}
+
+<form action="{% url 'me_too' %}">
+<label for="hi">인사</label>
+<input type="text" id='hi' name='hi'>
+<input type="submit" value="go">
+</form>
+
+{% endblock content %}
