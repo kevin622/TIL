@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Pick Lotto{% endblock title %}
+{% block content %}  
+  <h1>Workshop0308</h1>
+  <p>이번 주 당신의 행운번호는
+  <ul>
+  {% for number in lotto %}
+  <li>{{ number }}</li>
+  {% endfor %}</ul>
+  </p>
+{% endblock content %}
+
