@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Detail Page{% endblock title %}
+
+{% block body %}
+<h1>This is Detail Page</h1>
+<h2>이름 : {{ student.name }}</h2>
+<h3>나이 : {{ student.age }} | 전공 : {{ student.major }}</h3>
+<p>취미 : {{ student.hobby }}</p>
+<a href="{% url 'index' %}" class="btn btn-primary">Index</a>
+<a href="{% url 'edit' student.pk %}" class="btn btn-secondary">Edit</a>
+
+<form method="POST" action="{% url 'delete' student.id %}" style="display: inline;">
+  {% csrf_token %}
+  <input 
+  type="submit" 
+  class="btn btn-danger" 
+  onclick="return confirm('삭제하쉴?')" 
+  value="Delete">
+</form>
+{% endblock body %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Edit Page{% endblock title %}
+
+{% block body %}
+<h1>Edit Page</h1>
+<a href="{% url 'detail' student.pk %} " class='btn btn-secondary'>뒤로 가기</a>
+  <form action="{% url 'update' student.pk %}" method='POST'>
+  {% csrf_token %}
+  <div>
+    name : <input type="text" name="name" value="{{ student.name }}">
+  </div>
+  <div>
+    age : <input type="text" name="age" value="{{ student.age }}">
+  </div>
+  <div>
+    major : <input type="text" name="major" value="{{ student.major }}">
+  </div>
+  hobby : <textarea name="hobby" id="" cols="30" rows="10">{{ student.hobby }}</textarea>
+  <input type="submit" class="btn btn-primary">
+  </form>
+{% endblock body %}
